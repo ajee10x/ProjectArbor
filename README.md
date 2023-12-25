@@ -1,6 +1,8 @@
-# ProjectArbor Version 1.0
+# ProjectArbor Version 2.0.0
 
-![Alt text](/screenshots/logo.png?raw=true "logo")
+![Alt text](/screenshots/logo_v_2_0_0.png?raw=true "logo")
+
+
 
 ## About
 
@@ -8,38 +10,61 @@ ProjectArbor is a tool for generating project directory structures in a tree for
 The best part about this tool, all you need to do is to copy and paste directily into your `README.md` file without any editing on the output that you scrapped, and it will apear at the desired shape that you want.
 
 
+
 ## Table of Contents
 
 - [About](#about)
+- [What's new in Version 2.0.0 ?](#whatnew)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+  - [Prerequisites for Linux](#prerequisites-for-linux)
+  - [Prerequisites for Windows](#prerequisites-for-windows)
+- [Installation](#installation)
+  - [Installation for Linux](#installation-for-linux)
+  - [Installation for Windows](#installation-for-windows)
 - [Usage](#usage)
   - [Github Arbor Builder Usage](#usage-github)
   - [Local Arbor Builder Usage](#usage-local)
 - [Example](#example)
-- [Contributing](#contributing)
 - [Tested](#tested)
+- [Contributing](#contributing)
 - [License](#license)
+
+## What's new in Version 2.0.0 ?
+- Converted the whole project from shell script to python.
+- Works on windows also.
+- Easy use and friendly terminal interface.
+- Log supported and previous configurations
 
 
 ## Getting Started
 
 
-### Prerequisites
+### Prerequisites for Linux
 
 Before you get started, make sure you have the following prerequisites:
 
-- Bash shell
+- python3
 - jq (a lightweight and flexible command-line JSON processor)
 
 You can install `jq` using your package manager. For example, on Linux:
 ```console
 sudo apt-get install jq
 ```
+```console
+pip install -r requirements.txt
+```
 
+### Prerequisites for Windows
 
-### Installation
+Before you get started, make sure you have the following prerequisites:
+
+- python3
+
+```console
+pip install -r requirements.txt
+```
+
+## Installation
 
 
 - Clone this repository to your local machine:
@@ -48,18 +73,24 @@ git clone https://github.com/ajee10x/ProjectArbor.git
 cd ProjectArbor
 ```
 
+### Installation for Linux
 
-- Make the shell scripts executable:
+- For Linux - Make the pythonfiles executable:
 ```console
-chmod +x ArborBuilder.sh
-chmod +x LocalArborBuilder.sh
+chmod +x ArborBuilder.py
+chmod +x LocalArborBuilder.py
 ```
 
-- or using this command to make the shell scripts executable
+- or using this command to make the project files executable
 ```console
 chmod +x *
 ```
 
+### Installation for Windows
+
+```console
+Nothing to worry about :)
+```
 
 ## Usage
 
@@ -68,23 +99,76 @@ chmod +x *
 
 To generate a project tree structure for a GitHub any repository:
 
-- Open the `ArborBuilder.sh` file and edit the following:
+- Run the Following command:
+```console
+python ArborBuilder.py
+```
+- Enter a username that you want to have their repo projects tree, for example we will use `github`:
+```console
+ _____           _         _   _____     _
+|  _  |___ ___  |_|___ ___| |_|  _  |___| |_ ___ ___  v2.0.0
+|   __|  _| . | | | -_|  _|  _|     |  _| . | . |  _|
+|__|  |_| |___|_| |___|___|_| |__|__|_| |___|___|_|
+              |___|
+                                                                                                                        
 
-- Change the following values at your desire:
-`USERNAME="Any_GitHub_Username"`
-`REPO="Any_GitHub_Repository_Name"`
+
+Previous Configurations:
+1. ajee10x
+2. torvalds
+Enter the number to select a username or 0 for new input: 0
+Enter your GitHub username: github
+```
 
 - Set your Github personal access token from https://github.com/settings/tokens
-`TOKEN="Your_Github_Personal_Access_Token"`
 
-- After editing, now run the following command:
+- Now, after generating a token, copy it and paste it into the command line then hit enter:
+
 ```console
-sh ArborBuilder.sh
+Previous Tokens:
+1. My_Old_Github_Personal_Access_Token
+Enter the number to select a token or 0 for new input: 0
+Enter the new token: Your_Github_Personal_Access_Token
 ```
-or
+
+In case you faced a problems with it, just paste it into that file `GithubTokens.config`
+
+- Now, you can see Public Repositories for any Github username that you entered:
 
 ```console
-./ArborBuilder.sh
+Public Repositories for github:
+1. .github
+2. accessibility-alt-text-bot
+3. accessibilityjs
+4. actions-cheat-sheet
+5. actions-learning-pathway
+6. actions-oidc-debugger
+7. actions-oidc-gateway-example
+8. advisory-database
+9. AFNetworking
+10. albino
+11. aptly
+12. Archimedes
+13. archive-program
+14. argo-ml
+15. aroma
+16. auto-check-element
+17. auto-complete-element
+18. automatic-contrib-prs
+19. aws-s3
+20. azure-quickstart-templates
+21. babel-plugin-ensure-name-for-custom-elements
+22. babel-plugin-transform-custom-element-classes
+23. babel-plugin-transform-invariant-location
+24. babel-preset-github
+25. backstop
+26. backup-utils
+27. balanced-employee-ip-agreement
+28. banana_phone
+29. bellevue-murals
+30. bert
+Enter the number to select a repository or 0 for new input: 28
+Project structure saved in github_project_tree.txt
 ```
 
 This script fetches the HTML content of the repository page and then uses grep, cut, and sed to extract the file and directory names.
@@ -95,21 +179,43 @@ This script fetches the HTML content of the repository page and then uses grep, 
 
 ### Local Arbor Builder Usage
 
-You can also generate a project tree structure for a local directory before uploading your project on github on your computer using 'LocalArborBuilder.sh'.
+You can also generate a project tree structure for a local directory before uploading your project on github on your computer using `LocalArborBuilder.py`.
 
-Open the `LocalArborBuilder.sh` file and edit the following:
 
-- Change the following values at your desire:
-`LOCAL_PATH="Your_Porject_Folder_Path"`
 
 - After editing, now run the following command:
 ```console
-sh LocalArborBuilder.sh
+python LocalArborBuilder.py
 ```
-or
+
+- Now select which platform you are using at the moment:
 
 ```console
-./LocalArborBuilder.sh
+ _____           _         _   _____     _
+|  _  |___ ___  |_|___ ___| |_|  _  |___| |_ ___ ___  v2.0.0
+|   __|  _| . | | | -_|  _|  _|     |  _| . | . |  _|
+|__|  |_| |___|_| |___|___|_| |__|__|_| |___|___|_|
+              |___|
+                                                                                                                        
+
+
+Select the platform:
+1. linux
+2. windows
+Enter the platform number (1 or 2): 2
+```
+
+- After that, you can find prevoise projects path or paste a new one:
+```console
+Previous Paths:
+1. C:\Users\demo\Desktop\ProjectArbor-main
+2. Enter a new path
+Enter the number to select a previous path or enter a new one: 2
+```
+- Now, enter a new path:
+```console
+Enter the path to your local project folder: C:\Users\demo\Desktop\banana_phone-master
+Local project structure saved in local_project_tree.txt
 ```
 This will create a 'local_project_tree.txt' file containing the local project tree structure.
 
@@ -117,78 +223,36 @@ This will create a 'local_project_tree.txt' file containing the local project tr
 `local_project_tree.txt`
 
 ## Example
-- This was a live(github) and local tested on that project https://github.com/ajee10x/LTM-LinuxTaskManager
+- This was a live(github)  and local tested on that project https://github.com/github/banana_phone
 
-## Project Directory/Structure/Tree
+## Project Directory/Structure/Tree 
     .
 
+    └── .gitignore
+    └── Gemfile
+    └── Gemfile.lock
     └── LICENSE
-    └── LTM.jar
     └── README.md
-    ├── bin
-    │    └── jfreechart.jar
-    │    ├── ltm
-    │    │    └── AppHistoryPanel$1.class
-    │    │    └── AppHistoryPanel$AppLaunchInfo.class
-    │    │    └── AppHistoryPanel.class
-    │    │    └── DetailsPanel.class
-    │    │    └── Main.class
-    │    │    └── PerformancePanel.class
-    │    │    └── ProcessesPanel$1.class
-    │    │    └── ProcessesPanel$2.class
-    │    │    └── ProcessesPanel.class
-    │    │    └── ServicesPanel.class
-    │    │    └── StartupPanel$1.class
-    │    │    └── StartupPanel$2.class
-    │    │    └── StartupPanel$3.class
-    │    │    └── StartupPanel$4.class
-    │    │    └── StartupPanel$5.class
-    │    │    └── StartupPanel$6.class
-    │    │    └── StartupPanel.class
-    │    │    └── UsersPanel.class
-    │    │    ├── scripts
-    │    │    │    └── app_history.sh
-    │    │    │    └── details.sh
-    │    │    │    └── list_running_processes.sh
-    │    │    │    └── performance_data.sh
-    │    │    │    └── services_data.sh
-    │    │    │    └── set_execute_permission.sh
-    │    │    │    └── startup_data.sh
-    │    │    │    └── system_details.sh
-    │    │    │    └── user_data.sh
-    ├── screenshots
-    │    └── ApplicationHistory.jpg
-    │    └── PCdetials.jpg
-    │    └── Process.jpg
-    │    └── ServiceControl.jpg
-    │    └── StartupApplications.jpg
-    │    └── SystemPerformanceMonitoring.jpg
-    │    └── UserManagement.jpg
-    │    └── ltmlogo.jpg
-    │    └── ltmlogo_50.jpg
-    ├── src
-    │    └── jfreechart.jar
-    │    ├── ltm
-    │    │    └── AppHistoryPanel.java
-    │    │    └── DetailsPanel.java
-    │    │    └── LTMApplication.java
-    │    │    └── Main.java
-    │    │    └── PerformancePanel.java
-    │    │    └── ProcessesPanel.java
-    │    │    └── ServicesPanel.java
-    │    │    └── StartupPanel.java
-    │    │    └── UsersPanel.java
-    │    │    ├── scripts
-    │    │    │    └── app_history.sh
-    │    │    │    └── details.sh
-    │    │    │    └── list_running_processes.sh
-    │    │    │    └── performance_data.sh
-    │    │    │    └── services_data.sh
-    │    │    │    └── set_execute_permission.sh
-    │    │    │    └── startup_data.sh
-    │    │    │    └── system_details.sh
-    │    │    │    └── user_data.sh
-    └── version.txt
+    └── Rakefile
+    └── banana_phone.gemspec
+    ├── lib
+    │    └── banana_phone.rb
+    │    ├── banana_phone
+    │    │    └── action.rb
+    │    │    └── encodes.rb
+    │    │    └── errors.rb
+    │    │    └── mod.rb
+    │    │    └── request.rb
+    │    │    └── service.rb
+    ├── test
+    │    └── action_test.rb
+    │    └── encodes_test.rb
+    │    └── error_test.rb
+    │    └── mod_test.rb
+    │    └── request_test.rb
+    │    └── service_test.rb
+    │    └── test_helper.rb
+
 
 
 
@@ -197,7 +261,9 @@ This will create a 'local_project_tree.txt' file containing the local project tr
 Contributions are welcome! If you have any ideas or improvements for ProjectArbor, please open an issue or submit a pull request.
 
 ## Tested
-- [x] Kali Linux 2023.3
+- [x] Windows 11
+- [x] Kali Linux 2023.4
+
 
 ## License
 This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
