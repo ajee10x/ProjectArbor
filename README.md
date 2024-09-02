@@ -171,6 +171,7 @@ Enter the number to select a repository or 0 for new input: 28
 Project structure saved in github_project_tree.txt
 ```
 
+
 This script fetches the HTML content of the repository page and then uses grep, cut, and sed to extract the file and directory names.
 
 - Now you will find the tree project in that folder:
@@ -222,8 +223,10 @@ This will create a 'local_project_tree.txt' file containing the local project tr
 - Now you will find the tree project in that folder:
 `local_project_tree.txt`
 
+
 ## Example
 - This was a live(github)  and local tested on that project https://github.com/github/banana_phone
+
 
 ## Project Directory/Structure/Tree 
     .
